@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import {
   StyleSheet,
   View,
@@ -5,24 +6,29 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import { SvgProps } from 'react-native-svg';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 type TextButtonProps = {
   title: string;
-  text?: string;
-  IconSvg: any
+  children?: ReactElement;
+  IconSvg: React.FC<SvgProps>
+  isBorderBottomTrue?: boolean
 };
 
-const TextButton = ({title, IconSvg}: TextButtonProps) => (
+const TextButton = ({ title, IconSvg, isBorderBottomTrue = true, children }: TextButtonProps) => (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container, {
+        borderBottomWidth: isBorderBottomTrue? 1 : 0,
+      }]}
       >
-        <View
-          style={styles.textWrapper}>
+        <View style={styles.titleWrapper}>
           <Text style={styles.title}>{title}</Text>
-        </View>      
-        <IconSvg style={{ marginLeft: 'auto' }}/>
-        <Icon name="angle-right" size={18} color="#222" style={{ marginLeft: 12 }} />
+          <IconSvg style={{ marginLeft: 'auto' }}/>
+          <Icon name="angle-right" size={18} color="#222" style={{ marginLeft: 12 }} />
+        </View>
+        {children}
     </TouchableOpacity>
 );
 
@@ -31,13 +37,13 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 24,
     paddingVertical: 24,
-    borderBottomColor: '#E8EbE8',
-    borderBottomWidth: 1,
-    alignItems: 'center',
-    flexDirection: 'row'
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderBottomColor: '#E8EbE8'
   },
-  textWrapper:{
-    flexDirection: 'column'
+  titleWrapper:{
+    flexDirection: 'row', 
+    alignItems: 'center'
   },
   title: {
     color: '#1a1a13', 

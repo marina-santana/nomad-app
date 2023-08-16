@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import TextButton from '../components/Button/TextButton';
 
@@ -10,7 +10,9 @@ import Wallet from "../assets/wallet.svg";
 function Home() {
   return (
     <View style={styles.container}>
-      <TextButton title='Conta' IconSvg={Wallet}/>
+      <TextButton title='Conta' IconSvg={Wallet} isBorderBottomTrue={false}>
+        <Text>$591,13</Text>
+      </TextButton>
       <View style={styles.buttonWrapper}>
         <TextButton title='Investimentos' IconSvg={Investments}/>
         <TextButton title='Cartões' IconSvg={Cards}/>
