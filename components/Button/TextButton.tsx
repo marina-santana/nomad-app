@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
   title: {
     color: '#1a1a13', 
     fontSize: 15, 
-    textAlign: 'left'
+    textAlign: 'left',
+    fontFamily: 'Lato_700Bold',
   }
 });
 
