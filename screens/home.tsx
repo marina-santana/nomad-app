@@ -11,7 +11,10 @@ function Home() {
   return (
     <View style={styles.container}>
       <TextButton title='Conta' IconSvg={Wallet} isBorderBottomTrue={false}>
-        <Text>$591,13</Text>
+        <View style={styles.walletWrapper}>
+          <Text style={styles.txtDollarSign}>$</Text>
+          <Text style={styles.txtCash}>591,13</Text>
+        </View>
       </TextButton>
       <View style={styles.buttonWrapper}>
         <TextButton title='Investimentos' IconSvg={Investments}/>
@@ -32,6 +35,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF", 
     minHeight: '100%'
   },
+  walletWrapper:{
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginTop: 8
+  },
+  txtDollarSign:{
+   fontFamily: 'OpenSans_400Regular',
+   fontSize: 16,
+   marginRight: 4
+  },
+  txtCash:{
+    fontSize: 25,
+  }
 });
 
 export default Home;
