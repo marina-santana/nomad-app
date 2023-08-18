@@ -1,17 +1,20 @@
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
 import TextButton from '../components/Button/TextButton';
+import Card from '../components/Card';
+import Header from '../components/Header';
 
 import Cards from "../assets/cards.svg";
-import Investments from "../assets/investments.svg";
 import Shop from "../assets/shop.svg";
+import Investments from "../assets/investments.svg";
 import Wallet from "../assets/wallet.svg";
-import Card from '../components/Card';
+
 import { images, text } from '../utils';
 
 function Home() {
   return (
     <View style={styles.container}>
+      <Header/>
       <TextButton title='Conta' IconSvg={Wallet} isBorderBottomTrue={false}>
         <View style={styles.walletWrapper}>
           <Text style={styles.txtDollarSign}>$</Text>
