@@ -35,7 +35,7 @@ const TextButton = ({ title, IconSvg, isBorderBottomTrue = true, children }: Tex
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingHorizontal: 24,
+    paddingHorizontal: 28,
     paddingVertical: 24,
     justifyContent: 'center',
     flexDirection: 'column',

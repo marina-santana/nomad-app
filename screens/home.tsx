@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
 
 import TextButton from '../components/Button/TextButton';
 
@@ -6,6 +6,8 @@ import Cards from "../assets/cards.svg";
 import Investments from "../assets/investments.svg";
 import Shop from "../assets/shop.svg";
 import Wallet from "../assets/wallet.svg";
+import Card from '../components/Card';
+import { images, text } from '../utils';
 
 function Home() {
   return (
@@ -19,7 +21,20 @@ function Home() {
       <View style={styles.buttonWrapper}>
         <TextButton title='Investimentos' IconSvg={Investments}/>
         <TextButton title='Cartões' IconSvg={Cards}/>
-        <TextButton title='Shop' IconSvg={Shop} />
+        <TextButton title='Shop' isBorderBottomTrue={false} IconSvg={Shop}></TextButton>
+        <View style={styles.shopWrapper}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <Card image={images.booking} text={text.booking}/>
+            <Card image={images.rentCars} text={text.rentCars}/>
+            <Card image={images.assistCard} text={text.assistCard}/>
+            <Card image={images.americaChip} text={text.americaChip}/>
+            <Card image={images.avis} text={text.avis}/>
+            <Card image={images.hoteis} text={text.hoteis}/>
+            <Card image={images.rentalCars} text={text.rentalCars}/>
+            <Card image={images.tiqets} text={text.tiqets}/>
+            <Card image={images.allItems} text={text.allItems}/>
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
@@ -34,6 +49,9 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     backgroundColor: "#FFF", 
     minHeight: '100%'
+  },
+  shopWrapper:{
+    paddingLeft: 24
   },
   walletWrapper:{
     flexDirection: 'row',
